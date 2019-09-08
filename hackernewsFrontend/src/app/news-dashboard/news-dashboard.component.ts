@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsDjangoService } from '../news-django.service';
 
 @Component({
   selector: 'app-news-dashboard',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private newsDjangoService: NewsDjangoService) { }
 
   ngOnInit() {
+    this.newsApi();
+  }
+
+  newsApi(){
+    this.newsDjangoService.getNews().subscribe(res => {
+      console.log("res",res);
+    });
   }
 
 }
