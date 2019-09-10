@@ -4,24 +4,27 @@
 </nav>
 
 <!-- News Cards -->
-<div class="list-group" style="margin-left:2vw; margin-right:2vw">
-  <a href="#">
+<div class="list-group" style="margin-left:2vw; margin-right:2vw" *ngFor="let d of data;">
+  <a href="{{d['url']}}">
       <div class="card text-black-50 bg-light mb-3">
-        <div class="card-header">Report by Parth</div>
+        <div class="card-header">Report by {{d['name']}}</div>
           <div class="card-body">
-            <h5 class="card-title" style="color: black">Chandrayaan 2 landed successfully!!!</h5>
+            <h5 class="card-title" style="color: black">{{d['title']}}</h5>
             <div class="row">
               <div class="col-sm-8">
-                <p class="card-text">abc.com</p>
+                <p class="card-text">{{d['url']}}</p>
                 <i class="fa fa-thumbs-up" style="margin-right: 0.5vw"></i>
-                <small>48 points</small>    
+                <small>{{d['upvote']}} points</small>
               </div>
               <div class="col-sm-4">
-                <p class="card-text">Polarity: Positive</p>
+                <p class="card-text">Polarity: {{d['sentiment']}}</p>
               </div>
             </div>
           </div>
         </div>
   </a>
 </div>
+
+<button type="button" class="btn btn-primary" style="margin-left: 2vw; margin-bottom: 2vw; margin-top: 1vw" (click)=loadPrevious()>Load Previous</button>
+<button type="button" class="btn btn-primary" style="margin-left: 83vw; margin-bottom: 2vw; margin-top: 1vw" (click)=loadNext()>Load Next</button>
 

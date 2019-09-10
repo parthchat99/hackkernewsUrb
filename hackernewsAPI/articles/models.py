@@ -8,8 +8,9 @@ class Sentiment(models.Model):
     choice = [
         ('positive', 'POSITIVE'),
         ('negative', 'NEGATIVE'),
+        ('neutral', 'NEUTRAL'),
     ]
-    sentiment = models.CharField(max_length=128, choices=choice, default='negative')
+    sentiment = models.CharField(max_length=128, choices=choice)
 
     def __unicode__(self):
         return self.sentiment

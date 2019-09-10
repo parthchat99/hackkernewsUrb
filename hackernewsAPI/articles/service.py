@@ -13,15 +13,8 @@ class TopArticles(View):
 
     def post(self, request):
         params_dict = dict(request.POST)
-        try:
-            limit = int(params_dict.get('limit'))
-        except:
-            limit = 10
-
-        try:
-            offset = int(params_dict.get('offset'))
-        except:
-            offset = 0
+        limit = int(params_dict.get('limit')[0])
+        offset = int(params_dict.get('offset')[0]);
 
         top_article_ids = get_top_articles_id_from_hacker_news()
         resp = get_article_and_sentiments_from_db_or_hacker_news(top_article_ids, limit=limit, offset=offset)
@@ -32,15 +25,8 @@ class TopArticles(View):
 
     def get(self, request):
         params_dict = dict(request.GET)
-        try:
-            limit = int(params_dict.get('limit'))
-        except:
-            limit = 10
-
-        try:
-            offset = int(params_dict.get('offset'))
-        except:
-            offset = 0
+        limit = int(params_dict.get('limit')[0])
+        offset = int(params_dict.get('offset')[0]);
 
         resp = get_top_articles_from_db(limit=limit, offset=offset)
         if resp:

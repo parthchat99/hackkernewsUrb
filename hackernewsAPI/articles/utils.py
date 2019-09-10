@@ -52,7 +52,7 @@ def get_article_and_sentiments_from_db_or_hacker_news(article_id_list, offset=0,
     return articles
 
 
-def get_top_articles_from_db(offset=0, limit=10):
+def get_top_articles_from_db(limit, offset):
     return [{
         'id': db_article.pk,
         'userName': db_article.user.username,
