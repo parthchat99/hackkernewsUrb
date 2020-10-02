@@ -1,4 +1,4 @@
-# hackernewsUrban
+# HackernewsUrban
 
 Steps for project to work:
 
